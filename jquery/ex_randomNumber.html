@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function Random(){
+    $("#first_num").html(Math.floor((Math.random() * 99) + 1)+" +");
+    $("#second_num").html(" "+Math.floor((Math.random() * 99) + 1));
+  }
+  function Answer(){
+    var a = parseInt($("#first_num").html()) + parseInt($("#second_num").html());
+    if($("#ans").val() == a){
+      $("#result").html("That's correct.");
+      $("#result").css('color', 'green');
+    }else {
+      $("#result").html("That's wrong. The answer is : "+a);
+      $("#result").css('color', 'red');
+    }
+
+  }
+</script>
+</head>
+<body>
+  <div align="center">
+    <button id="btn_ran" onclick="Random()">Randdom Number</button>
+    <br><br>
+    <p style="display:inline" id="first_num"><p style="display:inline" id="second_num"></p> =
+    <input type="text" id="ans">
+    <br><br>
+    <button id="btn_ans" onclick="Answer()">Send Answer</button>
+    <br><br>
+    Result :
+    <p style="display:inline" id="result"></p>
+  </div>
+
+
+
+</body>
+</html>

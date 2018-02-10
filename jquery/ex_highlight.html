@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.0/jquery.mark.es6.min.js"></script>
+<script>
+  function myFunction(){
+    var Sentence = $("#sentence").html();
+    var word = $("#search").val()
+    var searchword = new RegExp(word,'gi');
+    var matches = Sentence.match(searchword);
+    if (matches == null) {
+      $("#found").html("No results") ;
+      return;
+    }
+    else {
+      $("#found").html(matches.length) ;
+    }
+    $('#sentence').unmark();
+    $("#sentence").mark(matches);
+  }
+</script>
+<style>
+div#txt_line{
+    height:170px;
+    width:100%auto;
+    border:2px solid black;
+}
+
+p#txt_head{
+    width:350px;
+    margin-top:-10px;
+    margin-left:10px;
+    background:white;
+}
+</style>
+</head>
+<body>
+  <div align="center">
+    Search :
+    <input type="text" name="search" id="search">
+    <br><br>
+    <button id="btn_search" onclick="myFunction()">Search</button>
+    <br><br>
+    found :
+    <p id="found" style="display:inline"></p>
+    <br><br>
+  </div>
+  <div id="txt_line">
+    <p style="font-size: 20px; font-weight: bold;" id="txt_head">The Article : Continuous Digital Health</p>
+    <p style="font-size: 20px" id="sentence">The way we deal with our health is undergoing a major transformation, not only because mobile Internet technology has made it possible to have continuous access to personal health information, but also because breaking the trend of ever-growing healthcare costs is increasingly necessary. Estimates indicate that more than 70 percent of the world population will have a smartphone by 2017. Connectivity, interoperability, sensing, and instant feedback through smartphones all provide new opportunities for gaining insights into our health behavior. Such insights are improving, and understanding what motivates people to make healthy changes throughout their lifetimes is becoming more important. Internet technology not only lets us continuously monitor an individual's physiological and psychological state, but also allows for building up a lifelong record of physical, mental, and social health.</p>
+  </div>
+
+
+
+</body>
+</html>
